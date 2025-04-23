@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class SistemaRegistro {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        String nombre, correo, clave;
+
+        System.out.println("SISTEMA DE REGISTRO DE PERSONAS\n");
+
+        do {
+            System.out.print("Nombre completo: ");
+            nombre = entrada.nextLine();
+            if (!Verificador.esNombreValido(nombre)) {
+                System.out.println("El nombre debe tener al menos 2 letras y sin números.");
+            }
+        } while (!Verificador.esNombreValido(nombre));
+
+        do {
+            System.out.print("Correo electrónico: ");
+            correo = entrada.nextLine();
+            if (!Verificador.esEmailValido(correo)) {
+                System.out.println("Formato de correo inválido.");
+            }
+        } while (!Verificador.esEmailValido(correo));
+
+        do {
+            System.out.print("Contraseña segura: ");
+            clave = entrada.nextLine();
+            if (!Verificador.esClaveSegura(clave)) {
+                System.out.println("La contraseña debe tener mínimo 8 caracteres, incluyendo mayúsculas, minúsculas, número y símbolo.");
+            }
+        } while (!Verificador.esClaveSegura(clave));
+
+        Persona persona = new Persona(nombre, correo, clave);
+        persona.mostrarResumen();
+
+        entrada.close();
+    }
+}
