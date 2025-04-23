@@ -1,0 +1,17 @@
+public class Persona {
+    private String nombreCompleto;
+    private String email;
+    private String clave;
+
+    public Persona(String nombreCompleto, String email, String clave) {
+        this.nombreCompleto = nombreCompleto;
+        this.email = email;
+        this.clave = clave;
+    }
+
+    public void mostrarResumen() {
+        System.out.println("\nRegistro exitoso:");
+        System.out.println("Nombre: " + nombreCompleto);
+        System.out.println("Email: " + email);
+    }
+}
